@@ -1,0 +1,7 @@
+{
+  "name": "The Daily Planet",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
