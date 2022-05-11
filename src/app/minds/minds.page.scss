@@ -1,0 +1,42 @@
+ion-content {
+  .tools {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  ion-avatar{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+
+  ion-label{
+    margin-left: 40px;// size needed
+  }
+
+  ion-text {
+    h1 {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      margin-top: -5px;
+    }
+  }
+
+  cdk-virtual-scroll-viewport {
+    height: 100%;
+    width: 100%;
+    // background: #ffffff;
+  }
+
+  ion-fab-button {
+    margin-bottom: 50px;
+  }
+
+
+
+}

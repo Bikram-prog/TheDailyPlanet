@@ -1,0 +1,20 @@
+.op{
+  margin-top: 1.4em;
+}
+
+.comment {
+  width: 100%;
+  margin-top: 15px;
+  ion-avatar {
+      float: left;
+  }
+
+  ion-label {
+      float: left;
+      // margin-left: 30px;
+
+      p {
+          // margin-left: 20px;
+      }
+  }
+}

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="dismiss()" fill="clear" color="danger" slot="start">
+      Close
+    </ion-button>
+    <ion-title>{{ news_title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+
+
+      <ion-text class="ion-text-wrap">
+        <ion-img style="width: 100%; height: 250px; object-fit: cover; margin-bottom: 14px;" *ngIf="news_img_path != ''" [src]="news_img_path"></ion-img>
+        <h1 style="padding-left: 20px; padding-right: 20px;">{{ news_title }}</h1>
+        <p style="padding-left: 20px; padding-right: 20px;" [innerHTML]="news_desc"></p>
+
+        <h4 style="padding-left: 20px; padding-right: 20px;">Comments ({{ comments.length }})</h4>
+        <ion-item *ngFor="let com of comments" lines="none" >
+          <ion-avatar>
+            <img [src]="com.prfl_pic">
+          </ion-avatar>
+          <ion-label>
+            <h2 style="margin-left: 10px;">{{ com.name }}</h2>
+            <p class="ion-text-wrap" style="margin-left: 10px;">{{ com.comment }}</p>
+          </ion-label>
+        </ion-item>
+
+      </ion-text>
+
+
+
+
+
+
+</ion-content>
+
+<ion-footer class="ion-border" collapse="fade">
+
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="10">
+          <ion-textarea autoGrow="true" autofocus="false" placeholder="Write your comment..."></ion-textarea>
+        </ion-col>
+        <ion-col size="2">
+          <ion-button fill="clear" color="primary">Post</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </ion-toolbar>
+
+
+
+
+
+
+</ion-footer>

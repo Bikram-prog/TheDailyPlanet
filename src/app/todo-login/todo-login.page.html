@@ -1,0 +1,33 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Todo Login</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <div class="flex">
+
+    <ion-text>
+      <h1>Login </h1>
+    </ion-text>
+
+    <ion-item style="margin-top: 2em; margin-bottom: 2em;">
+
+      <ion-input [(ngModel)]="log.email" name="email" type="email" autofocus="true" enterkeyhint="next" inputmode="email" pattern="email" placeholder="@ Email ID"></ion-input>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-input [(ngModel)]="log.pass" name="pass" type="password" autofocus="false" enterkeyhint="done" inputmode="password" pattern="password" placeholder="Password"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="login()" style="margin-top: 1.8em;" color="tertiary" expand="block" size="large">Login</ion-button>
+
+    <ion-button (click)="register()" style="margin-top: 1.8em;" color="dark" expand="block" size="small" fill="clear">New Here?  Register now</ion-button>
+
+
+
+  </div>
+
+</ion-content>

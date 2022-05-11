@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import { NavController, Platform } from '@ionic/angular';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -6,13 +8,31 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'News', url: '/folder/news', icon: 'newspaper' },
+    { title: "What's on your mind", url: '/minds', icon: 'list' },
+    // { title: 'Open', url: '/folder/open', icon: 'list' },
+    // { title: 'In-progress', url: '/folder/In-progress', icon: 'hourglass' },
+    // { title: 'Completed', url: '/folder/completed', icon: 'checkmark-done' }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  public labels = ['Privacy', 'Terms'];
+  constructor(private router: Router, private platform: Platform, public navctrl: NavController) {
+    this.initializeApp();
+  }
+
+  initializeApp() {
+
+      const log_id = localStorage.getItem('log_id');
+      if(log_id) {
+        this.navctrl.navigateRoot("");
+      } else {
+        this.router.navigate(['todo-login']);
+      }
+
+
+  }
+
+  async logout() {
+    await localStorage.removeItem('log_id');
+    this.navctrl.navigateRoot('todo-login')
+  }
 }

@@ -8,12 +8,15 @@ import { FolderPageRoutingModule } from './folder-routing.module';
 
 import { FolderPage } from './folder.page';
 
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule
+    FolderPageRoutingModule,
+    ScrollingModule
   ],
   declarations: [FolderPage]
 })

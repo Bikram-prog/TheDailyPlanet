@@ -1,0 +1,271 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>What's On Your Mind</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [scrollY]="true"> <!-- [scrollY]="false" -->
+
+ <cdk-virtual-scroll-viewport *ngIf="data" class="ion-content-scroll-host" itemSize="56" minBufferPx="900" maxBufferPx="1500">
+
+
+
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">What's On Your Mind</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-list style="margin-top: 10px;">
+
+    <ion-item *cdkVirtualFor="let mind of minds" lines="full" (click)="gotoDetails(mind.news_id)">
+
+      <ion-avatar slot="start">
+        <img src="https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png">
+      </ion-avatar>
+
+      <ion-label>
+
+        <ion-text>
+          <h1>{{ mind.author_name }}</h1>
+        </ion-text>
+
+          <!-- <ion-img *ngIf="mind.news_img_path != ''" style="width: 100%; border-radius: 10px;" src="{{ mind.news_img_path }}" alt="{{ mind.news_title }}"></ion-img> -->
+
+          <img *ngIf="mind.news_img_path != ''" style="width: 100%; border-radius: 10px;" decoding="async" alt="{{ mind.news_title }}" part="image" src="{{ mind.news_img_path }}">
+
+
+        <div class="ion-text-wrap">
+          <!-- <p>{{ job.start_date|date:'MMMM d, y' }}</p> -->
+
+          <!-- <h1>{{ mind.news_title }}</h1> -->
+          <div style="margin-top: 10px;" [innerHTML]="mind.news_desc"></div>
+
+          <!-- <p>{{ job.end_date|date:'MMMM d, y' }}</p> -->
+        </div>
+
+        <div class="tools">
+          <ion-icon name="chatbubble-outline" slot="icon-only" (click)="gotoDetails(mind.news_id)"></ion-icon>
+          <ion-text>
+            <p style="margin-left: 12px;">20+</p>
+          </ion-text>
+          <!-- <ion-icon size="large" slot="icon-only" name="heart-outline"></ion-icon> -->
+        </div>
+
+
+
+      </ion-label>
+      <!-- <ion-icon name="book-outline" slot="end"></ion-icon> -->
+
+    </ion-item>
+  </ion-list>
+
+
+  </cdk-virtual-scroll-viewport>
+
+
+  <div *ngIf="!data">
+
+    <ion-list>
+      <ion-item lines="full">
+        <ion-label>
+          <ion-avatar>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+
+          <div class="ion-text-wrap">
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+            <h1><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></h1>
+            <h5><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></h5>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+          </div>
+
+        </ion-label>
+        <ion-skeleton-text animated style="width: 10%"></ion-skeleton-text>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>
+          <ion-avatar>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+
+          <div class="ion-text-wrap">
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+            <h1><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></h1>
+            <h5><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></h5>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+          </div>
+
+        </ion-label>
+        <ion-skeleton-text animated style="width: 10%"></ion-skeleton-text>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>
+          <ion-avatar>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+
+          <div class="ion-text-wrap">
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+            <h1><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></h1>
+            <h5><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></h5>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+          </div>
+
+        </ion-label>
+        <ion-skeleton-text animated style="width: 10%"></ion-skeleton-text>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>
+          <ion-avatar>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+
+          <div class="ion-text-wrap">
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+            <h1><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></h1>
+            <h5><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></h5>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+          </div>
+
+        </ion-label>
+        <ion-skeleton-text animated style="width: 10%"></ion-skeleton-text>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>
+          <ion-avatar>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+
+          <div class="ion-text-wrap">
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+            <h1><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></h1>
+            <h5><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></h5>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+          </div>
+
+        </ion-label>
+        <ion-skeleton-text animated style="width: 10%"></ion-skeleton-text>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>
+          <ion-avatar>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+
+          <div class="ion-text-wrap">
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+            <h1><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></h1>
+            <h5><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></h5>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+          </div>
+
+        </ion-label>
+        <ion-skeleton-text animated style="width: 10%"></ion-skeleton-text>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>
+          <ion-avatar>
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+
+          <div class="ion-text-wrap">
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+            <h1><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></h1>
+            <h5><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></h5>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+          </div>
+
+        </ion-label>
+        <ion-skeleton-text animated style="width: 10%"></ion-skeleton-text>
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+
+
+
+
+<!-- Card Modal -->
+<ion-modal
+  [isOpen]="openModal"
+  [initialBreakpoint]="1"
+  [swipeToClose]="false"
+  [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <ion-header [translucent]="true">
+      <ion-toolbar>
+        <ion-button fill="clear" (click)="canDismiss()" color="danger" slot="start">
+          Close
+        </ion-button>
+        <ion-title>What's On Your Mind?</ion-title>
+        <ion-button fill="clear" (click)="canDismiss()" color="tertiary" slot="end">
+          Post
+        </ion-button>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+
+      <ion-row>
+        <ion-col>
+
+          <ion-textarea #myInput autoGrow="true" placeholder="What's on your mind?"></ion-textarea>
+        </ion-col>
+      </ion-row>
+    </ion-content>
+
+    <ion-footer class="ion-border" mode="md" collapse="fade" >
+      <ion-toolbar>
+        <ion-title>Add photo</ion-title>
+        <!-- <ion-icon (click)="chooseImage()" size="large" color="tertiary" name="image-outline" style="margin-right: 24px; margin-left: 10px;"></ion-icon> -->
+        <ion-icon style="margin-left: 24px; margin-top: 10px;" (click)="openCamera()" size="large" color="tertiary" name="camera-outline"></ion-icon>
+      </ion-toolbar>
+
+    </ion-footer>
+  </ng-template>
+</ion-modal>
+
+<!-- details page -->
+
+<ion-modal
+  [isOpen]="openModalDetails"
+  [initialBreakpoint]="1"
+  [swipeToClose]="false"
+  [presentingElement]="routerOutlet.nativeEl">
+  <ng-template>
+    <app-details></app-details>
+  </ng-template>
+</ion-modal>
+
+
+
+  <!-- fab placed to the bottom end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="tertiary" (click)="startModal()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+
+
+  </ion-fab>
+
+
+</ion-content>
