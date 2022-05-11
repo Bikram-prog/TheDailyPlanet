@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from  '@angular/common/http';
 import { ModalController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -11,8 +12,9 @@ import { ModalController } from '@ionic/angular';
 export class DetailsPage implements OnInit {
 
   // Data passed in by componentProps
-  @Input() id: string;
+  //@Input() id: string;
 
+  post_id: string;
   news_img_path: string;
   news_title: string;
   news_desc: string;
@@ -23,12 +25,16 @@ export class DetailsPage implements OnInit {
   constructor(
     private http: HttpClient,
     private modalController: ModalController,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
   ) {
 
   }
 
   ngOnInit() {
-    const url = "https://globallove.online/api/tdp/whatson/your/mind/details/" + this.id;
+    this.post_id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    const url = "https://globallove.online/api/tdp/whatson/your/mind/details/" + this.post_id;
     this.http.get(url).subscribe((res: any) => {
       this.news_img_path = res[0].news_img_path;
       this.news_title = res[0].news_title;

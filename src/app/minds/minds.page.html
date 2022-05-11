@@ -8,7 +8,7 @@
 </ion-header>
 
 
-<ion-content [scrollY]="true"> <!-- [scrollY]="false" -->
+<ion-content [scrollY]="false"> <!-- [scrollY]="false" -->
 
  <cdk-virtual-scroll-viewport *ngIf="data" class="ion-content-scroll-host" itemSize="56" minBufferPx="900" maxBufferPx="1500">
 
@@ -217,7 +217,7 @@
           Close
         </ion-button>
         <ion-title>What's On Your Mind?</ion-title>
-        <ion-button fill="clear" (click)="canDismiss()" color="tertiary" slot="end">
+        <ion-button fill="clear" (click)="setPost()" color="tertiary" slot="end">
           Post
         </ion-button>
       </ion-toolbar>
@@ -228,7 +228,7 @@
       <ion-row>
         <ion-col>
 
-          <ion-textarea #myInput autoGrow="true" placeholder="What's on your mind?"></ion-textarea>
+          <ion-textarea #myInput autoGrow="true" placeholder="What's on your mind?" [(ngModel)]="post.text" name="text"></ion-textarea>
         </ion-col>
       </ion-row>
     </ion-content>
@@ -246,7 +246,7 @@
 
 <!-- details page -->
 
-<ion-modal
+<!-- <ion-modal
   [isOpen]="openModalDetails"
   [initialBreakpoint]="1"
   [swipeToClose]="false"
@@ -254,7 +254,7 @@
   <ng-template>
     <app-details></app-details>
   </ng-template>
-</ion-modal>
+</ion-modal> -->
 
 
 

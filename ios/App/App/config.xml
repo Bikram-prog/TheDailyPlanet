@@ -11,9 +11,5 @@
     <param name="ios-package" value="CDVSpinnerDialog"/>
   </feature>
 
-  <feature name="ImagePicker">
-    <param name="ios-package" value="SOSPicker"/>
-  </feature>
-
   
 </widget>
