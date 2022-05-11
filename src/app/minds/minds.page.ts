@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from  '@angular/common/http';
 import { ActionSheetController, IonRouterOutlet, IonTextarea, ModalController } from '@ionic/angular';
 import { DetailsPage } from '../details/details.page';
 import { Camera, CameraResultType } from '@capacitor/camera';
-import { Keyboard } from '@capacitor/keyboard';
+
 
 @Component({
   selector: 'app-minds',
