@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { SpinnerDialog } from '@awesome-cordova-plugins/spinner-dialog/ngx';
+import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { SpinnerDialog } from '@awesome-cordova-plugins/spinner-dialog/ngx';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    InAppBrowser, SpinnerDialog,],
+    InAppBrowser, SpinnerDialog, Camera],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
