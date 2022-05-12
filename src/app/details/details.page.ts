@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from  '@angular/common/http';
 import { ModalController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
 
 @Component({
   selector: 'app-details',
@@ -27,6 +27,7 @@ export class DetailsPage implements OnInit {
     private modalController: ModalController,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private photoViewer: PhotoViewer,
   ) {
 
   }
@@ -51,6 +52,10 @@ export class DetailsPage implements OnInit {
     this.modalController.dismiss({
       'dismissed': true
     });
+  }
+
+  openImageViewer(img) {
+    this.photoViewer.show(img);
   }
 
 }

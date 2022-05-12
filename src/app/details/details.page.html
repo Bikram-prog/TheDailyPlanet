@@ -10,8 +10,8 @@
 
 
       <ion-text class="ion-text-wrap">
-        <ion-img style="width: 100%; height: 250px; object-fit: cover; margin-bottom: 14px;" *ngIf="news_img_path != ''" [src]="news_img_path"></ion-img>
-        <h1 style="padding-left: 20px; padding-right: 20px;">{{ news_title }}</h1>
+        <ion-img (click)="openImageViewer(news_img_path)" style="width: 100%; height: 250px; object-fit: cover; margin-bottom: 14px;" *ngIf="news_img_path != ''" [src]="news_img_path"></ion-img>
+        <!-- <h1 style="padding-left: 20px; padding-right: 20px;">{{ news_title }}</h1> -->
         <p style="padding-left: 20px; padding-right: 20px;" [innerHTML]="news_desc"></p>
 
         <h4 style="padding-left: 20px; padding-right: 20px;">Comments ({{ comments.length }})</h4>
@@ -34,7 +34,7 @@
 
 </ion-content>
 
-<ion-footer class="ion-border" collapse="fade">
+<ion-footer class="ion-border">
 
   <ion-toolbar>
     <ion-grid>

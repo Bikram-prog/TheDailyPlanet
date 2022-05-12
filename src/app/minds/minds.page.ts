@@ -2,8 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from  '@angular/common/http';
 import { ActionSheetController, IonRouterOutlet, IonTextarea, ModalController, NavController, ToastController } from '@ionic/angular';
 import { DetailsPage } from '../details/details.page';
-import { Camera, CameraResultType } from '@capacitor/camera';
+
 import { Router } from '@angular/router';
+
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { SpinnerDialog } from '@awesome-cordova-plugins/spinner-dialog/ngx';
 
 @Component({
   selector: 'app-minds',
@@ -18,15 +21,17 @@ export class MindsPage implements OnInit {
   public openModalDetails: boolean = false;
   public post = { text: ''}
   public dataUrl: string = '';
+  logId: string;
 
   @ViewChild("myInput") myInput: IonTextarea;
 
   constructor(private http: HttpClient, public routerOutlet: IonRouterOutlet,
-    private actionSheetCtrl: ActionSheetController, public modalController: ModalController, private router: Router, private toast: ToastController,  ) {
+    private actionSheetCtrl: ActionSheetController, public modalController: ModalController, private router: Router, private toast: ToastController, private spinnerDialog: SpinnerDialog, ) {
 
     }
 
   ngOnInit() {
+    this.logId = localStorage.getItem('log_id');
     let url = "https://globallove.online/api/tdp/whatson/your/mind";
      this.http.get(url).subscribe((res: any) => {
       this.data = true;
@@ -46,22 +51,22 @@ export class MindsPage implements OnInit {
 
 
   async setPost() {
-    alert(this.dataUrl)
+    this.spinnerDialog.show();
     const myheader = new HttpHeaders();
     //myheader.set('Access-Control-Allow-Origin', '*');
     myheader.set('Content-Type', 'application/x-www-form-urlencoded');
 
-    let body = new HttpParams();
-    body = body.set('name', 'Sumanta Kundu');
-    body = body.set('id', '68');
-    body = body.set('news_desc', this.post.text);
-    body = body.set('news_title', 'demo title');
-    body = body.set('image', this.dataUrl);
+    const formData = new FormData();
+    formData.append('name', 'Sumanta Kundu');
+    formData.append('id', this.logId);
+    formData.append('news_desc', this.post.text);
+    formData.append('news_title', 'null');
+    formData.append('image', this.dataUrl);
 
-    await this.http.post<any>('https://globallove.online/api/tdp/news/insert', body, {
+    await this.http.post<any>('https://globallove.online/api/tdp/news/insert', formData, {
       headers: myheader
     }).subscribe(response => {
-
+      this.spinnerDialog.hide();
       this.post.text = '';
       if(response.success == 'success') {
         this.presentToast("You'r post has been successfully posted.");
@@ -80,18 +85,22 @@ export class MindsPage implements OnInit {
 
   async openCamera() {
 
-      const image = await Camera.getPhoto({
-        quality: 80,
-        allowEditing: true,
-        resultType: CameraResultType.Base64
-      });
+    const image = await Camera.getPhoto({
+      quality: 60,
+      allowEditing: false,
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Prompt,
+      presentationStyle: 'popover',
+    });
 
-      // image.webPath will contain a path that can be set as an image src.
-      // You can access the original file using image.path, which can be
-      // passed to the Filesystem API to read the raw data of the image,
-      // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
-      var imageUrl = image.webPath;
-      this.dataUrl = image.base64String;
+    // image.webPath will contain a path that can be set as an image src.
+    // You can access the original file using image.path, which can be
+    // passed to the Filesystem API to read the raw data of the image,
+    // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
+    var imageUrl = image.webPath;
+
+    // Can be set to the src of an image now
+    this.dataUrl = image.base64String;
 
   }
 
