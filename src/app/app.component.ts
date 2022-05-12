@@ -10,7 +10,7 @@ export class AppComponent {
   public appPages = [
     { title: 'News', url: '/folder/news', icon: 'newspaper' },
     { title: "What's on your mind", url: '/minds', icon: 'list' },
-    // { title: 'Open', url: '/folder/open', icon: 'list' },
+    { title: 'My Profile', url: '/profile', icon: 'person-circle' },
     // { title: 'In-progress', url: '/folder/In-progress', icon: 'hourglass' },
     // { title: 'Completed', url: '/folder/completed', icon: 'checkmark-done' }
   ];
