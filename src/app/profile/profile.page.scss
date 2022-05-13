@@ -1,3 +1,26 @@
-ion-toolbar {
-    background-color: transparent;
+ion-content {
+    div {
+        border-bottom: 1px solid #ccc;
+        ion-img {
+            margin-top: 12px;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        p {
+            margin-top: 12px;
+            padding: 8px;
+        }
+
+        .tools {
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 8px;
+            padding-right: 8px;
+            margin-top: -16px;
+          }
+    }
 }

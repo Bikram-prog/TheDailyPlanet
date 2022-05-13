@@ -1,71 +1,41 @@
+<ion-header
+  parallax
+  imageUrl="{{ pro_pic }}"
+  height="350"
+  bgPosition="top"
+>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>  </ion-title>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content> 
 
+  <ion-text>
+    <h1 style="margin-left: 8px;">{{ name }}</h1>
+    <p style="margin-left: 8px; margin-top: -6px;" color="medium">{{ sex }}, {{ country }}</p>
+    <h2 style="margin-left: 8px;">My Posts ({{ news.length }})</h2>
+  </ion-text>
 
-<ion-content>
-  <div class="ion-no-padding">
-    <ion-img *ngIf="pro_pic != ''" [src]="pro_pic"></ion-img>
+  
+
+  <div class="loop" *ngFor="let new of news">
+    <ion-img class="ion-no-padding" *ngIf="new.news_img_path != ''" [src]="new.news_img_path"></ion-img>
+
+    <p [innerHTML]="new.news_desc"></p>
+
+    <div class="tools">
+      <ion-icon name="chatbubble-outline" slot="icon-only" (click)="gotoDetails(mind.news_id)"></ion-icon>
+      <ion-text>
+        <p style="margin-left: 12px;">{{ new.comments.length }}</p>
+      </ion-text>
+    </div>
+    
   </div>
 
-  <div class="ion-padding">
-    <ion-label>
-      <h2>{{ name }}</h2>
-      <p>{{ sex }}, {{ country }}</p>
-    </ion-label>
   
-    <ion-text style="margin-top: 20px;">
-      My posts ({{ news.length }})
-    </ion-text>
-
-    <ion-list style="margin-top: 10px;">
-
-      <ion-item *ngFor="let new of news" lines="full">
-  
-        
-  
-        <ion-label>
-  
-       
-  
-            <!-- <ion-img *ngIf="mind.news_img_path != ''" style="width: 100%; border-radius: 10px;" src="{{ mind.news_img_path }}" alt="{{ mind.news_title }}"></ion-img> -->
-  
-            <img  style="width: 100%; border-radius: 10px;" decoding="async" alt="title" part="image" *ngIf="new.news_img_path != ''" [src]="new.news_img_path">
-  
-  
-          <div class="ion-text-wrap">
-            <!-- <p>{{ job.start_date|date:'MMMM d, y' }}</p> -->
-  
-            <!-- <h1>{{ mind.news_title }}</h1> -->
-            <div style="margin-top: 10px;">{{ new.news_title }}</div>
-            <p style="padding-left: 20px; padding-right: 20px;" [innerHTML]="new.news_desc"></p>
-  
-            <!-- <p>{{ job.end_date|date:'MMMM d, y' }}</p> -->
-          </div>
-  
-         
-          <h4 style="padding-left: 20px; padding-right: 20px;">Comments ({{ new.comments.length }})</h4>
-        <ion-item *ngFor="let com of new.comments" lines="full" >
-          <ion-avatar>
-            <img [src]="com.prfl_pic">
-          </ion-avatar>
-          <ion-label>
-            <h2 style="margin-left: 10px;">{{ com.name }}</h2>
-            <p class="ion-text-wrap" style="margin-left: 10px;">{{ com.comment }}</p>
-          </ion-label>
-        </ion-item>
-  
-  
-        </ion-label>
-        <!-- <ion-icon name="book-outline" slot="end"></ion-icon> -->
-
-        
-  
-      </ion-item>
-    </ion-list>
-
-
-  </div>
-
 
 </ion-content>
-
-
