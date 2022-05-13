@@ -21,6 +21,7 @@ export class DetailsPage implements OnInit {
   news_desc: string;
   news_id: number;
   author_name: string;
+  author_pic: string;
   comments: any = []
   public com = {text: ''}
 
@@ -46,6 +47,7 @@ export class DetailsPage implements OnInit {
       this.news_desc = res[0].news_desc;
       this.news_id = res[0].news_id;
       this.author_name = res[0].author_name;
+      this.author_pic = res[0].author_photo;
       this.comments = res[0].comments
     });
   }
@@ -90,6 +92,7 @@ export class DetailsPage implements OnInit {
           this.news_desc = res[0].news_desc;
           this.news_id = res[0].news_id;
           this.author_name = res[0].author_name;
+          this.author_pic = res[0].author_photo;
           this.comments = res[0].comments;
         });
       }

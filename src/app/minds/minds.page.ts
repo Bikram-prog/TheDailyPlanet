@@ -30,7 +30,7 @@ export class MindsPage implements OnInit {
 
     }
 
-  trackByStudentID(index: number, mind: any): string {
+  trackByMindsID(index: number, mind: any): string {
     return mind.news_id;
   }
 
@@ -98,13 +98,11 @@ export class MindsPage implements OnInit {
   }
 
   async openCamera() {
-
     const image = await Camera.getPhoto({
       quality: 60,
       allowEditing: false,
       resultType: CameraResultType.Base64,
-      source: CameraSource.Prompt,
-      presentationStyle: 'popover',
+      //source: CameraSource.Prompt,
     });
 
     // image.webPath will contain a path that can be set as an image src.

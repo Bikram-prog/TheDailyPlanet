@@ -22,7 +22,7 @@
 
       <ion-list style="margin-top: 10px;">
 
-    <ion-item *cdkVirtualFor="let mind of minds; trackBy:trackByStudentID" lines="full" (click)="gotoDetails(mind.news_id)">
+    <ion-item *cdkVirtualFor="let mind of minds; trackBy:trackByMindsID" lines="full" (click)="gotoDetails(mind.news_id)" class="ion-activatable ripple-parent">
 
       <ion-avatar slot="start">
         <img *ngIf="mind.author_photo == ''" src="https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png">
@@ -65,7 +65,7 @@
 
       </ion-label>
       <!-- <ion-icon name="book-outline" slot="end"></ion-icon> -->
-
+      <ion-ripple-effect></ion-ripple-effect>
     </ion-item>
   </ion-list>
 

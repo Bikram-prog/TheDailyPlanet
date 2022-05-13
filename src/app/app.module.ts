@@ -17,7 +17,10 @@ import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot({
+    rippleEffect: true,
+      //mode: 'md'
+  }), AppRoutingModule, HttpClientModule],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     InAppBrowser, SpinnerDialog, PhotoViewer],
