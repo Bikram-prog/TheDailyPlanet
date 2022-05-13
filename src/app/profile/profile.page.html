@@ -1,19 +1,24 @@
-<ion-header
-  parallax
-  imageUrl="{{ pro_pic }}"
-  height="350"
-  bgPosition="top"
->
-  <ion-toolbar color="light">
+<ion-header [translucent]="true">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button color="dark"></ion-menu-button>
     </ion-buttons>
-    <ion-title>  </ion-title>
+    <ion-title> My profile </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> 
+<ion-content class="ion-no-padding"> 
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      
+      <ion-title> My profile </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
+  <div style="text-align: center; margin-bottom: 12px; border-bottom: none;"> 
+    <img class="ion-no-padding" [src]="pro_pic" >
+  </div>
+  
   <ion-text>
     <h1 style="margin-left: 8px;">{{ name }}</h1>
     <p style="margin-left: 8px; margin-top: -6px;" color="medium">{{ sex }}, {{ country }}</p>
@@ -36,6 +41,13 @@
     
   </div>
 
+    <!-- fab placed to the bottom end -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="tertiary">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-fab-button>
   
+  
+    </ion-fab>
 
 </ion-content>

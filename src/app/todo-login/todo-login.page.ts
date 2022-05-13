@@ -32,7 +32,7 @@ export class TodoLoginPage implements OnInit {
     }).subscribe(response => {
 console.log(response)
       if(response.id > 0) {
-        localStorage.setItem('log_id', response[0]);
+        localStorage.setItem('log_id', response['id']);
         this.navctrl.navigateRoot("");
       } else {
         localStorage.removeItem('log_id');

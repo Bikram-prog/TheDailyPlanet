@@ -8,20 +8,24 @@ import { HttpClient, HttpHeaders, HttpParams } from  '@angular/common/http';
 })
 export class ProfilePage implements OnInit {
   // Data passed in by componentProps
-  @Input() id: string;
+  
   public data: any = false;
   name: string;
   sex: string;
   country: string;
-  pro_pic: string;
+  pro_pic: string='';
   news: any = []
+  logID: string
 
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    const url = "https://globallove.online/api/tdp/profile/68";
+    this.pro_pic = ''
+    this.logID=localStorage.getItem('log_id')
+    const url = "https://globallove.online/api/tdp/profile/" + localStorage.getItem('log_id');
     this.http.get(url).subscribe((res: any) => {
+      console.log(res.data[0].pro_pic)
       this.data = true;
       this.name = res.data[0].name;
       this.sex = res.data[0].sex;
