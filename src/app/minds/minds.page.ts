@@ -30,13 +30,27 @@ export class MindsPage implements OnInit {
 
     }
 
+  trackByStudentID(index: number, mind: any): string {
+    return mind.news_id;
+  }
+
   ngOnInit() {
     this.logId = localStorage.getItem('log_id');
     let url = "https://globallove.online/api/tdp/whatson/your/mind";
      this.http.get(url).subscribe((res: any) => {
       this.data = true;
       this.minds = res.data;
-      console.log(res)
+
+    });
+  }
+
+  ionViewWillEnter() {
+    this.logId = localStorage.getItem('log_id');
+    let url = "https://globallove.online/api/tdp/whatson/your/mind";
+     this.http.get(url).subscribe((res: any) => {
+      this.data = true;
+      this.minds = res.data;
+
     });
   }
 

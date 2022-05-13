@@ -15,18 +15,24 @@ export class AppComponent {
     // { title: 'Completed', url: '/folder/completed', icon: 'checkmark-done' }
   ];
   public labels = ['Privacy', 'Terms'];
+  log_name: string;
+
   constructor(private router: Router, private platform: Platform, public navctrl: NavController) {
     this.initializeApp();
   }
 
   initializeApp() {
 
+    this.platform.ready().then(() => {
       const log_id = localStorage.getItem('log_id');
+      this.log_name = localStorage.getItem('log_name');
       if(log_id) {
         this.navctrl.navigateRoot("");
       } else {
         this.router.navigate(['todo-login']);
       }
+    })
+
 
 
   }

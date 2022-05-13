@@ -22,10 +22,12 @@
 
       <ion-list style="margin-top: 10px;">
 
-    <ion-item *cdkVirtualFor="let mind of minds" lines="full" (click)="gotoDetails(mind.news_id)">
+    <ion-item *cdkVirtualFor="let mind of minds; trackBy:trackByStudentID" lines="full" (click)="gotoDetails(mind.news_id)">
 
       <ion-avatar slot="start">
-        <img src="https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png">
+        <img *ngIf="mind.author_photo == ''" src="https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png">
+
+        <img *ngIf="mind.author_photo != ''" [src]="mind.author_photo">
       </ion-avatar>
 
       <ion-label>
@@ -45,15 +47,18 @@
           <!-- <h1>{{ mind.news_title }}</h1> -->
           <div style="margin-top: 10px;" [innerHTML]="mind.news_desc"></div>
 
-          <!-- <p>{{ job.end_date|date:'MMMM d, y' }}</p> -->
+
         </div>
 
         <div class="tools">
-          <ion-icon name="chatbubble-outline" slot="icon-only" (click)="gotoDetails(mind.news_id)"></ion-icon>
+          <ion-icon name="chatbubble-outline" slot="icon-only"></ion-icon>
           <ion-text>
-            <p style="margin-left: 12px;">20+</p>
+            <p style="margin-left: 12px;">{{ mind.comments.length }}</p>
           </ion-text>
-          <!-- <ion-icon size="large" slot="icon-only" name="heart-outline"></ion-icon> -->
+          <ion-text color="medium">
+            <p style="margin-left: 12px;" >{{ mind.news_date_time|date:'MMMM d, y' }}</p>
+          </ion-text>
+
         </div>
 
 

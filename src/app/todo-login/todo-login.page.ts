@@ -30,9 +30,11 @@ export class TodoLoginPage implements OnInit {
     this.http.post<any>('https://globallove.online/api/tdp/login', body, {
       headers: myheader
     }).subscribe(response => {
-console.log(response)
+console.log(response['name'])
       if(response.id > 0) {
-        localStorage.setItem('log_id', response[0]);
+        localStorage.setItem('log_id', response['id']);
+        localStorage.setItem('log_name', response['name']);
+        localStorage.setItem('log_email', response['email']);
         this.navctrl.navigateRoot("");
       } else {
         localStorage.removeItem('log_id');

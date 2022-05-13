@@ -5,6 +5,7 @@ const config: CapacitorConfig = {
   appName: 'The Daily Planet',
   webDir: 'www',
   bundledWebRuntime: false,
+  backgroundColor: '#ff0000',
   plugins: {
     Keyboard: {
       resize: "body",

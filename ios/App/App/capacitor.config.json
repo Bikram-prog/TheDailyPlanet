@@ -3,6 +3,7 @@
 	"appName": "The Daily Planet",
 	"webDir": "www",
 	"bundledWebRuntime": false,
+	"backgroundColor": "#ff0000",
 	"plugins": {
 		"Keyboard": {
 			"resize": "body",
@@ -23,8 +24,5 @@
 			"layoutName": "launch_screen",
 			"useDialog": true
 		}
-	},
-	"server": {
-		"url": "http://192.168.0.5:8100"
 	}
 }

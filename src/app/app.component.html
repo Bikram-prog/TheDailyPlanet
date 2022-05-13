@@ -4,7 +4,7 @@
       <ion-content>
         <ion-list id="inbox-list">
           <ion-list-header>The Daily Planet</ion-list-header>
-          <ion-note>Welcome back, Sumanta</ion-note>
+          <ion-note>Welcome back, {{ log_name }}</ion-note>
 
           <ion-menu-toggle auto-hide="true" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
