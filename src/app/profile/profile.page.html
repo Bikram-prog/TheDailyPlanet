@@ -42,11 +42,22 @@
           </div>
   
          
-  
+          <h4 style="padding-left: 20px; padding-right: 20px;">Comments ({{ new.comments.length }})</h4>
+        <ion-item *ngFor="let com of new.comments" lines="full" >
+          <ion-avatar>
+            <img [src]="com.prfl_pic">
+          </ion-avatar>
+          <ion-label>
+            <h2 style="margin-left: 10px;">{{ com.name }}</h2>
+            <p class="ion-text-wrap" style="margin-left: 10px;">{{ com.comment }}</p>
+          </ion-label>
+        </ion-item>
   
   
         </ion-label>
         <!-- <ion-icon name="book-outline" slot="end"></ion-icon> -->
+
+        
   
       </ion-item>
     </ion-list>
