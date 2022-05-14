@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> My profile </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+
+      <ion-title> My profile </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div style="text-align: center; margin-bottom: 12px; border-bottom: none;">
+    <img class="ion-no-padding" [src]="pro_pic" >
+  </div>
+
+  <ion-text>
+    <h1 style="text-align: center;">{{ name }}</h1>
+    <p style="text-align: center; margin-top: -6px;" color="medium">{{ sex }}, {{ country }}</p>
+    <h2 style="margin-left: 8px;">My Posts ({{ news.length }})</h2>
+  </ion-text>
+
+
+
+  <div (click)="gotoDetails(new.news_id)" class="loop" *ngFor="let new of news">
+    <ion-img class="ion-no-padding" *ngIf="new.news_img_path != ''" [src]="new.news_img_path"></ion-img>
+
+    <p [innerHTML]="new.news_desc"></p>
+
+    <div class="tools">
+      <ion-icon name="chatbubble-outline" slot="icon-only"></ion-icon>
+      <ion-text>
+        <p style="margin-left: 12px;">{{ new.comments.length }}</p>
+      </ion-text>
+    </div>
+
+  </div>
+
+    <!-- fab placed to the bottom end
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="tertiary">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-fab-button>
+
+
+    </ion-fab> -->
+
+</ion-content>

@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from  '@angular/common/http';
 import { ModalController, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
 import { SpinnerDialog } from '@awesome-cordova-plugins/spinner-dialog/ngx';
 
 @Component({
@@ -30,7 +29,6 @@ export class DetailsPage implements OnInit {
     private modalController: ModalController,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private photoViewer: PhotoViewer,
     private spinnerDialog: SpinnerDialog,
     private toast: ToastController,
   ) {
@@ -60,9 +58,7 @@ export class DetailsPage implements OnInit {
     });
   }
 
-  openImageViewer(img) {
-    this.photoViewer.show(img);
-  }
+
 
   post_comment() {
     this.spinnerDialog.show();

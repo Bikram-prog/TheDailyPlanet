@@ -8,8 +8,8 @@ import { NavController, Platform } from '@ionic/angular';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'News', url: '/folder/news', icon: 'newspaper' },
-    { title: "What's on your mind", url: '/minds', icon: 'list' },
+    { title: "What's on your mind", url: '/minds', icon: 'newspaper' },
+    { title: 'My Profile', url: '/profile', icon: 'person-circle' },
     // { title: 'Open', url: '/folder/open', icon: 'list' },
     // { title: 'In-progress', url: '/folder/In-progress', icon: 'hourglass' },
     // { title: 'Completed', url: '/folder/completed', icon: 'checkmark-done' }
