@@ -233,7 +233,7 @@
       <ion-row>
         <ion-col>
 
-          <ion-textarea #myInput autoGrow="true" placeholder="What's on your mind?" [(ngModel)]="post.text" name="text"></ion-textarea>
+          <ion-textarea #myInput autoGrow="true" rows="6" placeholder="What's on your mind?" [(ngModel)]="post.text" name="text"></ion-textarea>
         </ion-col>
       </ion-row>
     </ion-content>
@@ -265,7 +265,7 @@
 
   <!-- fab placed to the bottom end -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="secondary" (click)="startModal()">
+    <ion-fab-button color="success" (click)="startModal()">
       <ion-icon name="add-outline"></ion-icon>
     </ion-fab-button>
 

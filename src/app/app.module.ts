@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { SpinnerDialog } from '@awesome-cordova-plugins/spinner-dialog/ngx';
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 
 
 
@@ -22,7 +23,7 @@ import { SpinnerDialog } from '@awesome-cordova-plugins/spinner-dialog/ngx';
   }), AppRoutingModule, HttpClientModule],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    InAppBrowser, SpinnerDialog],
+    InAppBrowser, SpinnerDialog, StatusBar],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

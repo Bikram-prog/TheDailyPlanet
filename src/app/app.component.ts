@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { NavController, Platform } from '@ionic/angular';
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -17,13 +19,20 @@ export class AppComponent {
   public labels = ['Privacy', 'Terms'];
   log_name: string;
 
-  constructor(private router: Router, private platform: Platform, public navctrl: NavController) {
+  constructor(private router: Router, private platform: Platform, public navctrl: NavController, private statusBar: StatusBar) {
     this.initializeApp();
   }
 
   initializeApp() {
 
     this.platform.ready().then(() => {
+
+      // let status bar overlay webview
+      this.statusBar.overlaysWebView(false);
+
+      // set status bar to white
+      this.statusBar.backgroundColorByHexString('#6370ff');
+
       const log_id = localStorage.getItem('log_id');
       this.log_name = localStorage.getItem('log_name');
       if(log_id) {
